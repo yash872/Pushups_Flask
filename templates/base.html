@@ -13,20 +13,27 @@
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <div class="container-fluid">
-              <a class="navbar-brand" href="#">Pushups-Logger</a>
+              <a class="navbar-brand" href="{{ url_for('main.index') }}">Pushups-Logger</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <a href="{{ url_for('main.index') }}" class="btn btn-outline-primary" role="button" style="margin-left: 4px;">All WorkOuts</a>
+                    <a href="{{ url_for('main.user_workouts') }}" class="btn btn-outline-primary" role="button" style="margin-left: 4px;">All WorkOuts</a>
                     &nbsp;
                     <a href="{{ url_for('main.profile') }}" class="btn btn-outline-info" role="button" style="margin-left: 4px;">Account</a>
                 </ul>
                 <form class="d-flex">
+                  {% if current_user.is_authenticated %}
+                  <a href="{{ url_for('main.new_workout_post') }}" class="btn btn-outline-warning" role="button" style="margin-left: 4px;">Add New Workout</a>
+                  &nbsp;
+                  <a href="{{ url_for('auth.logout') }}" class="btn btn-outline-success" role="button" style="margin-left: 4px;">Logout</a>
+                  {% endif %}
+                  {% if not current_user.is_authenticated %}
                   <a href="{{ url_for('auth.signup') }}" class="btn btn-outline-warning" role="button" style="margin-left: 4px;">SignUp</a>
                   &nbsp;
                   <a href="{{ url_for('auth.login') }}" class="btn btn-outline-success" role="button" style="margin-left: 4px;">Login</a>
+                  {% endif %}
                 </form>
               </div>
             </div>
