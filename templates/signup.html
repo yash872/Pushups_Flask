@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h2>SignUp:</h2>
+    <div class="container h-100 d-flex justify-content-center">
+        <div class="jumbotron my-auto">
+            <form class="justify-content-center" method="POST" action="/signup">  
+                <div class="mb-3">
+                    <label for="Name" class="form-label">Name</label>
+                    <input type="text" name="Name" class="form-control" id="Name" aria-describedby="NameHelp">
+                  </div>
+                <div class="mb-3">
+                  <label for="Email" class="form-label">Email</label>
+                  <input type="email" name="Email" class="form-control" id="Email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="Password" class="form-label">Password</label>
+                  <input type="password" name="Password" class="form-control" id="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div> 
+     </div>
+    
+{% endblock %}

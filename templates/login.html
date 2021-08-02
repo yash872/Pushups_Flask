@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>login page!</h1>
+
+    <div class="container h-100 d-flex justify-content-center">
+        <div class="jumbotron my-auto">
+            <form class="justify-content-center" method="POST" action="/login">
+                <div class="mb-3">
+                  <label for="Email" class="form-label">Email</label>
+                  <input type="email" name="Email" class="form-control" id="Email" aria-describedby="emailHelp">
+                </div>
+                <div class="mb-3">
+                  <label for="Password" class="form-label">Password</label>
+                  <input type="password" name="Password" class="form-control" id="Password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+        </div> 
+     </div>
+{% endblock %}
